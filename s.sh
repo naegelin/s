@@ -5,15 +5,15 @@ if [[ $(basename "$0") != "s" ]] || [[ $(dirname "$0") != "/usr/local/bin" ]]; t
     echo "Installing S to /usr/local/bin, sudo password required"
     sudo cp "$0" /usr/local/bin/s
     sudo chmod +x /usr/local/bin/s
-    echo "SSH Quick Menu Installed. Type 's' to launch the command and add hosts to your ~/.ssh/config file as needed"
+    echo "SSH Quick Menu Installed. Type 's' to re-launch the command and add hosts to your ~/.ssh/config file as needed"
     
-    # Remove the script if it's not running from /usr/local/bin/s
-    if [[ $0 != "/usr/local/bin/s" ]]; then
+    # Check if the script is a regular file, not being piped or sourced, and not already in /usr/local/bin/s
+    if [[ -f "$0" ]] && [[ $0 != "/usr/local/bin/s" ]]; then
+        echo "Removing $0"
         rm -- "$0"
     fi
-
-    exit 0
 fi
+
 
 # Check if the operating system is macOS
 if [[ "$OSTYPE" != "darwin"* ]]; then
