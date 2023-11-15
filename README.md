@@ -7,7 +7,7 @@ Intended for Mac OSX.
 
 ## One line install:
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/naegelin/s/main/s.sh)"
+curl -fsSL https://raw.githubusercontent.com/naegelin/s/main/s.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
 
 ## Useage:
